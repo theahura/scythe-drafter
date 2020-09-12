@@ -19,12 +19,19 @@ const used_mats = use_expansion ? allmats : mats;
 const used_factions = use_expansion ? allfactions : factions;
 const permutations = permute(used_mats, used_factions);
 
-function getElements(perms, n) {
-  let elements = [];
-  for (; elements.length < n;) {
-    const el = perms[Math.floor(Math.random() * perms.length)];
-    if (banned.includes(el)) continue;
-    elements.push(el);
-  }
-  return elements;
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
 }
+
+function getElements(perms, n) {
+  const shuffled = shuffle(perms);
+  return shuffled.slice(0, n)
+}
+
+const num_players = 5;
+const draft_size = 3;
+getElements(permutations, 3 * 5)
