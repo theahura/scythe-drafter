@@ -17,7 +17,7 @@ function permute(a, b) {
 
 const used_mats = use_expansion ? allmats : mats;
 const used_factions = use_expansion ? allfactions : factions;
-const permutations = permutations(used_mats, used_factions);
+const permutations = permute(used_mats, used_factions);
 
 function getElements(perms, n) {
   let elements = [];
