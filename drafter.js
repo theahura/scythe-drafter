@@ -1,5 +1,8 @@
 const mats = ['engineering', 'mechanical', 'industrial', 'agricultural', 'innovate', 'patriotic', 'militant']
-const factions = ['nordic', 'rusviet', 'togawa', 'crimea', 'saxony', 'polania', 'albion']
+const allfactions = ['nordic', 'rusviet', 'togawa', 'crimea', 'saxony', 'polania', 'albion']
+const factions = ['nordic', 'rusviet', 'crimea', 'saxony', 'polania']
+const banned = ['patriotic-rusviet', 'mechanical-crimea']
+const use_expansion = false
 
 function permute(a, b) {
   let new_arr = [];
@@ -11,8 +14,7 @@ function permute(a, b) {
     return new_arr;
 }
 
-permutations = permute(mats, factions)
-banned = ['patriotic-rusviet', 'mechanical-crimea']
+const permutations = use_expansion ? permute(mats, allfactions) : permute(mats, factions);
 
 function getElements(perms, n) {
   let elements = [];
