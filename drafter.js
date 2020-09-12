@@ -15,7 +15,8 @@ permutations = permute(mats, factions)
 banned = ['patriotic-rusviet', 'mechanical-crimea']
 
 function getElements(perms, n) {
-  for (let elements = []; elements.length < n;) {
+  let elements = [];
+  for (; elements.length < n;) {
     const el = perms[Math.floor(Math.random() * perms.length)];
     if (banned.includes(el)) continue;
     elements.push(el);
