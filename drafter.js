@@ -12,3 +12,11 @@ function permute(a, b) {
 }
 
 permutations = permute(mats, factions)
+
+function getElements(perms, n) {
+  let elements = [];
+  for (let i = 0; i < n; ++i) {
+     elements.push(perms[Math.floor(Math.random() * perms.length)])
+  }
+  return elements;
+}
