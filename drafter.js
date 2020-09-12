@@ -12,11 +12,13 @@ function permute(a, b) {
 }
 
 permutations = permute(mats, factions)
+banned = ['patriotic-rusviet', 'mechanical-crimea']
 
 function getElements(perms, n) {
-  let elements = [];
-  for (let i = 0; i < n; ++i) {
-     elements.push(perms[Math.floor(Math.random() * perms.length)])
+  for (let elements = []; elements.length < n;) {
+    const el = perms[Math.floor(Math.random() * perms.length)];
+    if (banned.includes(el)) continue;
+    elements.push(el);
   }
   return elements;
 }
